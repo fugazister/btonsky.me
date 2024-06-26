@@ -30,6 +30,7 @@ function theRemover(domString) {
 		...root.querySelectorAll('.cover'),
 		...root.querySelectorAll('.spacer'),
 		...root.querySelectorAll('.pointers'),
+		...root.querySelectorAll('.menu'),
 		...root.querySelectorAll('script'),
 		...root.querySelectorAll('img'),
 		...root.querySelectorAll('meta'),
@@ -45,7 +46,7 @@ function theRemover(domString) {
 		}
 	});
 
-	const result = root.toString();
+	const result = root.textContent;
 
 	return result;
 }
