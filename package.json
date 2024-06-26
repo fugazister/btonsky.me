@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "node-html-parser": "^6.1.13",
+    "vigenere": "^1.0.2"
+  }
+}
