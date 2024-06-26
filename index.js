@@ -4,6 +4,8 @@ const { parse } = require('node-html-parser');
 const BASE_URL = 'https://tonsky.me';
 const vigenere = require('vigenere');
 
+let pageTitle = '';
+
 function get(url, successCallback, errorCallback) {
 	https.get(url, (res) => {
 		let data = [];
@@ -24,6 +26,8 @@ function get(url, successCallback, errorCallback) {
 
 function theRemover(domString) {
 	const root = parse(domString);
+
+	pageTitle = root.querySelector('title').textContent;
   
 	[
 		...root.querySelectorAll('.dark_mode'),
@@ -31,6 +35,7 @@ function theRemover(domString) {
 		...root.querySelectorAll('.spacer'),
 		...root.querySelectorAll('.pointers'),
 		...root.querySelectorAll('.menu'),
+		...root.querySelectorAll('title'),
 		...root.querySelectorAll('script'),
 		...root.querySelectorAll('img'),
 		...root.querySelectorAll('meta'),
@@ -60,7 +65,7 @@ function thePackager(input) {
 	const result = `
 	<html>
 		<head>
-			<title>btonsky.me</title>
+			<title>${pageTitle}</title>
 		</head>
 		<body style="font-family: monospace; font-size: large; text-transform: uppercase">${parsedInput}</body>
 	</html>`;
