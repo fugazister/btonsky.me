@@ -15,7 +15,7 @@ module.exports = {
 			ref: 'origin/main',
 			repo: 'git@github.com:fugazister/btonsky.me.git',
 			path: '/home/btonsky/app',
-			'post-deploy': 'npm i'
+			'post-deploy': 'npm i && pm2 startOrRestart ecosystem.config.js --env production'
 		}
 	}
 }
