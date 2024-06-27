@@ -27,7 +27,7 @@ function get(url, successCallback, errorCallback) {
 function theRemover(domString) {
 	const root = parse(domString);
 
-	pageTitle = root.querySelector('title').textContent;
+	pageTitle = root.querySelector('title')?.textContent;
   
 	[
 		...root.querySelectorAll('.dark_mode'),
@@ -44,20 +44,20 @@ function theRemover(domString) {
 	].forEach(el => el.remove());
 
 	root.querySelectorAll('a').forEach(link => {
-		let href = link.getAttribute('href');
+		let href = link?.getAttribute('href');
 
-		if (href.startsWith('/')) {
+		if (href?.startsWith('/')) {
 			link.setAttribute('href', `${BASE_URL}${href}`);
 		}
 	});
 
-	const result = root.textContent;
+	const result = root?.textContent;
 
 	return result;
 }
 
 function theCipher(input) {
-	return vigenere.encode(input, 'nikitonsky').split('').join(' ');
+	return vigenere.encode(input, 'nikitonsky')?.split('').join(' ');
 }
 
 function thePackager(input) {
