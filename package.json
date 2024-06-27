@@ -1,4 +1,7 @@
 {
+  "name": "btonsky.me",
+  "version": "0.1.0",
+  "author": "Max Nikitin",
   "dependencies": {
     "node-html-parser": "^6.1.13",
     "vigenere": "^1.0.2"
